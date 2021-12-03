@@ -1,43 +1,76 @@
-
-// import mechanics.Scoreboard;
-import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
+
 import global.Variables;
-import mechanics.Card;
-import mechanics.Deck;
+import mechanics.*;
 
 public class Main {
 
-        public static int fase_atual;
-        public static int[] inimigos = new int[20];
+        public static void main(String[] args) throws Exception {
 
-        
+                Random Random = new Random();
+                Scanner in = new Scanner(System.in);
 
-    public static void main(String[] args) throws Exception {
-        Variables Global = new Variables();
-        Random random = new Random();
-        int a=0;
+                Variables Global = new Variables();
+                Stage Stage = new Stage();
+                Deck Deck = new Deck();
+                Hand Hand = new Hand(Deck);
 
-        for(int i=0;i<inimigos.length;i++){
-            a+=5*i;
+                System.out.println("Você se encontra no " + Stage.currentStage() + "° Andar!");
+                Global.increaseEnemyHealth();
 
-            inimigos[i] = a;
+                /* System.out.println(
+                                "\nAo acordar, você se depara perdido no primeiro andar de um lugar que parece uma masmorra...");
+                System.out.println(
+                                "\nA única coisa que você sabe é que deve lutar para sobreviver e escapar desse pesadelo!");
 
-            System.out.println("Valor de i "+i);
-            System.out.println("Valor de inimigos "+inimigos[i]);
+                System.out.println("\n----- GAME START -----");
+
+                System.out.println("\n[!] Em suas mãos aparecem misteriosamente sete cartas mágicas.");
+                System.out.println("\nVocê consegue sentir que elas estão imbuídas com poderes inimagináveis...");
+
+                System.out.println("\nMão: " + Hand);
+
+                System.out.println(
+                                "\n[!] Ao explorar a masmorra, você se depara com um inimigo assustador e fora desse mundo. ");
+
+                System.out.println("\nVocê sente um fogo nostalgico em seu peito, e decide derrotar o inimigo. ");
+
+                System.out.println("\n----- COMBAT START -----");
+
+                System.out.println("\nQual carta deseja utilizar? ");
+                int userChoice = in.nextInt();
+
+                System.out.println("\nVocê utilizou a carta " + Hand.chosenCard(userChoice).nome + "!");
+                System.out.println("\n" + Hand.chosenCard(userChoice).descricao);
+
+                Hand.useCard(userChoice, Global);
+                Hand.useCard(0, Global);
+                Hand.useCard(2, Global);
+                Hand.useCard(4, Global);
+
+                // System.out.println("\nQtd Cartas Utilizadas: " + Global.cartasUsadas);
+
+                System.out.println("\nO espírito maligno foi destruido!");
+
+                System.out.println("\nMão: " + Hand);
+
+                System.out.println(
+                                "\nCom o inimigo derrotado, uma escada que parece o levar para o próximo andar aparece como se fosse mágica...");
+
+                System.out.println("\n[...] Carregando novo andar, por favor aguarde.");
+
+                System.out.println("\n----- 2° Andar -----");
+
+                System.out.println("\n[!] Ao subir de andar, novas cartas surgem misteriosamente em suas mãos.");
+
+                Hand.fillHand(Deck);
+
+                System.out.println("\n...Você sente uma espécie de déjà vu, mas decide ignorar essa sensação.");
+
+                System.out.println("\nMão: " + Hand);
+
+                System.out.println("\n----- GAME START -----"); */
+
         }
-        
-          // A logica do jogo roda entorno de uma iteracao 
-          // atraves de uma lista de fases;
-         
-         
-        while(fase_atual<inimigos.length){
-
-            System.out.println(inimigos[fase_atual]);
-            fase_atual++;
-
-        }
-            //Printar placar, fim do jogo
-
-    }
 }
