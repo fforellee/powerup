@@ -73,7 +73,7 @@ public class Hand {
 
         for (int i = 0; i < playerHand.size(); i++) {
             sb.append("(" + (i) + ") ");
-            sb.append(playerHand.get(i).nome);
+            sb.append(playerHand.get(i).name);
 
             if (i < playerHand.size() - 1) {
                 sb.append(", ");

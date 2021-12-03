@@ -48,7 +48,7 @@ public class Deck {
     StringBuilder sb = new StringBuilder("[");
 
     for (int i = 0; i < Deck.size(); i++) {
-      sb.append(Deck.get(i).nome);
+      sb.append(Deck.get(i).name);
       
       if (i < Deck.size() - 1) {
         sb.append(", ");
