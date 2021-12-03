@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-  final int CARD_VARIETY = 6;
+  final int CARD_VARIETY = 5;
   final int CARD_QUANTITY = 7;
 
   private ArrayList<Card> Deck = new ArrayList<>();
@@ -16,7 +16,7 @@ public class Deck {
   public Deck() {
     for (int i = 1; i <= CARD_VARIETY; i++) {
       // Adicionando cartas comuns ao Deck
-      if (i <= 7) {
+      if (i <= 6) {
         for (int j = 0; j < CARD_QUANTITY; j++) {
           Deck.add(new Card(i));
         }

@@ -32,10 +32,6 @@ public class Card {
         this.name = "Treinar";
         this.description = "[!] Aumenta em 1 ponto o dano de cada cavaleiro do jogador!";
         break;
-      case 6:
-        this.name = "Atacar";
-        this.description = "[!] Ataca e inflige dano aos pontos de vida do inimigo!";
-        break;
     }
   }
 
@@ -46,7 +42,8 @@ public class Card {
    *               carta
    * @return a carta utilizada pelo jogador
    */
-  public Object useCard(Variables Global) {
+
+  /* public Object useCard(Variables Global) {
     switch (this.id) {
       case 1:
         return Curar(Global);
@@ -58,11 +55,9 @@ public class Card {
         return Sacrificar(Global);
       case 5:
         return Treinar(Global);
-      case 6:
-        return Atacar(Global);
     }
     return null;
-  }
+  } */
 
   /**
    * Cartas comuns
@@ -80,8 +75,8 @@ public class Card {
     return Global.knightQuantity += 2;
   }
 
-  private Object Reunir(Variables Global) {
-    return Global.knightDamage += Global.totalDamage() + (double) Global.knightQuantity / 2;
+  public Object Reunir(Variables Global) {
+    return Global.knightDamage += Global.totalDamage + (double) Global.knightQuantity / 2;
   }
 
   public Object Sacrificar(Variables Global) {
@@ -91,9 +86,5 @@ public class Card {
 
   public Object Treinar(Variables Global) {
     return Global.knightDamage++;
-  }
-
-  public Object Atacar(Variables Global) {
-    return Global.totalDamage() - Global.enemyHealth();
   }
 }

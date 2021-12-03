@@ -7,6 +7,7 @@ public class Hand {
 
     final int HAND_SIZE = 7;
     ArrayList<Card> playerHand = new ArrayList<>(HAND_SIZE);
+    Variables Global = new Variables();
 
     /**
      * Cria-se a Mão e a preenche com sete cartas
@@ -43,6 +44,34 @@ public class Hand {
         } else {
             System.out.println(
                     "Ao tentar utilizar uma quarta carta, você sente um desconforto em sua mente... \nTalvez isso signifique que seu corpo chegou ao limite do cansaço... \nTente novamente no próximo andar.");
+        }
+    }
+
+    public void useCard2(int userChoice, Variables Global) {
+
+        switch (userChoice) {
+            case 1:
+                System.out.println("Curar");
+                Global.playerHealth += 5;
+                Global.knightQuantity -= 3;
+                break;
+            case 2:
+                System.out.println("Recrutar");
+                Global.knightQuantity += 2;
+                break;
+            case 3:
+                System.out.println("Reunir");
+                Global.knightDamage += Global.totalDamage + (double) Global.knightQuantity / 2;
+                break;
+            case 4:
+                System.out.println("Sacrificar");
+                Global.knightQuantity -= 2;
+                Global.knightDamage += Global.knightDamage * 1;
+                break;
+            case 5:
+                System.out.println("Treinar");
+                Global.knightDamage++;
+                break;
         }
     }
 

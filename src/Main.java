@@ -17,7 +17,20 @@ public class Main {
                 Hand Hand = new Hand(Deck);
 
                 System.out.println("Você se encontra no " + Stage.currentStage() + "° Andar!");
-                Global.increaseEnemyHealth();
+
+                System.out.println("\nMão: " + Hand);
+
+                Global.printar();
+
+                System.out.println("\nQual carta deseja utilizar? ");
+                int userChoice = in.nextInt();
+
+                System.out.println("\nVocê utilizou a carta " + Hand.chosenCard(userChoice).name + "!");
+                System.out.println("\n" + Hand.chosenCard(userChoice).description);
+
+                Hand.useCard2(userChoice, Global);
+
+                Global.printar();
 
                 /* System.out.println(
                                 "\nAo acordar, você se depara perdido no primeiro andar de um lugar que parece uma masmorra...");
