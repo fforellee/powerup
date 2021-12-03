@@ -33,30 +33,6 @@ public class Variables {
     Stage Stage = new Stage();
     int stage = Stage.currentStage();
 
-    if (stage == 1) {
-      enemyHealth = 5;
-      System.out.println("HP do inimigo: " + enemyHealth);
-    }
-
-    if (stage == 2) {
-      enemyHealth += 10;
-      System.out.println("HP do inimigo: " + enemyHealth);
-    }
-
-    if (stage == 3) {
-      enemyHealth += 10;
-      System.out.println("HP do inimigo: " + enemyHealth);
-    }
-
-    if (stage == 4) {
-      enemyHealth += 15;
-      System.out.println("HP do inimigo: " + enemyHealth);
-    }
-
-    if (stage == 5) {
-      enemyHealth += 15;
-      System.out.println("HP do inimigo: " + enemyHealth);
-    }
   }
 
 }

@@ -11,66 +11,59 @@ public class Main {
                 Random Random = new Random();
                 Scanner in = new Scanner(System.in);
 
+
                 Variables Global = new Variables();
                 Stage Stage = new Stage();
                 Deck Deck = new Deck();
                 Hand Hand = new Hand(Deck);
 
-                System.out.println("Você se encontra no " + Stage.currentStage() + "° Andar!");
-                Global.increaseEnemyHealth();
+                String acao;
 
-                /* System.out.println(
-                                "\nAo acordar, você se depara perdido no primeiro andar de um lugar que parece uma masmorra...");
-                System.out.println(
-                                "\nA única coisa que você sabe é que deve lutar para sobreviver e escapar desse pesadelo!");
 
-                System.out.println("\n----- GAME START -----");
+                Enemy[] inimigos = new Enemy[5]; // One to rule them all
+
+                // for(int i=0;i<inimigos.length;i++){
+                //     inimigos[i] = new Enemy(12,12);
+                // }
+               
+                int fase_atual = 1;
+
+                System.out.println( "\nAo acordar, você se depara perdido no primeiro andar de um lugar que parece uma masmorra...");
+                System.out.println( "\nA única coisa que você sabe é que deve lutar para sobreviver e escapar desse pesadelo!");
+
+                Thread.sleep(3000); 
 
                 System.out.println("\n[!] Em suas mãos aparecem misteriosamente sete cartas mágicas.");
                 System.out.println("\nVocê consegue sentir que elas estão imbuídas com poderes inimagináveis...");
 
-                System.out.println("\nMão: " + Hand);
+                Thread.sleep(3000); 
 
-                System.out.println(
-                                "\n[!] Ao explorar a masmorra, você se depara com um inimigo assustador e fora desse mundo. ");
+                while(fase_atual <= 1){
+                    System.out.println("\n--------------- GAME START -----------------");
+                    System.out.println("Você se encontra no " +fase_atual+ "° Andar!");
 
-                System.out.println("\nVocê sente um fogo nostalgico em seu peito, e decide derrotar o inimigo. ");
+                    // switch acao{
+                    //     case 1:
+                    //         Hand.useCard(i,Global);
+                    //         break;
+                    // }
+                    //Acoes: Atacar, usar ate 3 cartas
+                    // Calcula o dano
+                    // Decrementa da vida do espirito sombrio
 
-                System.out.println("\n----- COMBAT START -----");
+                        // inimigo.vida -= sofreDano();
 
-                System.out.println("\nQual carta deseja utilizar? ");
-                int userChoice = in.nextInt();
+                    //Acao do inimigo
+                    // Calcula o dano
+                    // Decrementa da vida do jogador
+                    
+                        // vida -= inimigo.atacar();
+                    
+                        
+                    //Morre ou mata, se vida do inimigo=0 proxima fase, se vida do jogador=0 GAME OVER
 
-                System.out.println("\nVocê utilizou a carta " + Hand.chosenCard(userChoice).nome + "!");
-                System.out.println("\n" + Hand.chosenCard(userChoice).descricao);
-
-                Hand.useCard(userChoice, Global);
-                Hand.useCard(0, Global);
-                Hand.useCard(2, Global);
-                Hand.useCard(4, Global);
-
-                // System.out.println("\nQtd Cartas Utilizadas: " + Global.cartasUsadas);
-
-                System.out.println("\nO espírito maligno foi destruido!");
-
-                System.out.println("\nMão: " + Hand);
-
-                System.out.println(
-                                "\nCom o inimigo derrotado, uma escada que parece o levar para o próximo andar aparece como se fosse mágica...");
-
-                System.out.println("\n[...] Carregando novo andar, por favor aguarde.");
-
-                System.out.println("\n----- 2° Andar -----");
-
-                System.out.println("\n[!] Ao subir de andar, novas cartas surgem misteriosamente em suas mãos.");
-
-                Hand.fillHand(Deck);
-
-                System.out.println("\n...Você sente uma espécie de déjà vu, mas decide ignorar essa sensação.");
-
-                System.out.println("\nMão: " + Hand);
-
-                System.out.println("\n----- GAME START -----"); */
+                    fase_atual++;
+                }
 
         }
 }
