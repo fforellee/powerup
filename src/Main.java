@@ -22,11 +22,30 @@ public class Main {
 
                 Enemy[] inimigos = new Enemy[5]; // One to rule them all
 
-                // for(int i=0;i<inimigos.length;i++){
-                //     inimigos[i] = new Enemy(12,12);
-                // }
+                for(int i=0;i<inimigos.length;i++){
+                    inimigos[i] = new Enemy(12,12);
+                }
                
                 int fase_atual = 1;
+
+                System.out.println(" _______  _______  _     _  _______  ______      __   __  _______    __  ");
+                System.out.println("|       ||       || | _ | ||       ||    _ |    |  | |  ||       |  |  | ");
+                System.out.println("|    _  ||   _   || || || ||    ___||   | ||    |  | |  ||    _  |  |  | ");
+                System.out.println("|   |_| ||  | |  ||       ||   |___ |   |_||_   |  |_|  ||   |_| |  |  | ");
+                System.out.println("|    ___||  |_|  ||       ||    ___||    __  |  |       ||    ___|  |__| ");
+                System.out.println("|   |    |       ||   _   ||   |___ |   |  | |  |       ||   |       __  ");
+                System.out.println("|___|    |_______||__| |__||_______||___|  |_|  |_______||___|      |__| ");
+                System.out.println("                                                                         ");
+
+                 
+                 
+                 
+                 
+                 
+                 
+                
+
+                Thread.sleep(3000); 
 
                 System.out.println( "\nAo acordar, você se depara perdido no primeiro andar de um lugar que parece uma masmorra...");
                 System.out.println( "\nA única coisa que você sabe é que deve lutar para sobreviver e escapar desse pesadelo!");
@@ -38,9 +57,14 @@ public class Main {
 
                 Thread.sleep(3000); 
 
-                while(fase_atual <= 1){
+                while(fase_atual <= inimigos.length){
                     System.out.println("\n--------------- GAME START -----------------");
                     System.out.println("Você se encontra no " +fase_atual+ "° Andar!");
+
+                    Thread.sleep(1500); 
+
+                    System.out.println("Cuidado! Goblins se aproximam!  Vida:"+inimigos[fase_atual].vida+ " Dano:"+ inimigos[fase_atual].dano);
+
 
                     // switch acao{
                     //     case 1:
