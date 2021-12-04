@@ -32,10 +32,6 @@ public class Card {
         this.nome = "Treinar";
         this.descricao = "[!] Aumenta em 1 ponto o dano de cada cavaleiro do jogador!";
         break;
-      case 6:
-        this.nome = "Atacar";
-        this.descricao = "[!] Ataca e inflige dano aos pontos de vida do inimigo!";
-        break;
     }
   }
 
@@ -46,22 +42,24 @@ public class Card {
    *               carta
    * @return a carta utilizada pelo jogador
    */
-  public Object useCard(Variables Global) {
+  public void useCard(int id,Variables Global) {
     switch (this.id) {
       case 1:
-        return Curar(Global);
+         Curar(Global);
+         break;
       case 2:
-        return Recrutar(Global);
+         Recrutar(Global);
+         break;
       case 3:
-        return Reunir(Global);
+         Reunir(Global);
+         break;
       case 4:
-        return Sacrificar(Global);
+         Sacrificar(Global);
+         break;
       case 5:
-        return Treinar(Global);
-      case 6:
-        return Atacar(Global);
+         Treinar(Global);
+         break;
     }
-    return null;
   }
 
   /**
@@ -71,29 +69,26 @@ public class Card {
    *               carta
    * @return novos valores das variáveis utilizadas
    */
-  public Object Curar(Variables Global) {
-    Global.playerHealth += 5;
-    return Global.knightQuantity -= 3;
+  public void Curar(Variables Global) {
+     Global.playerHealth += 5;
+     Global.knightQuantity -= 3;
   }
 
-  public Object Recrutar(Variables Global) {
-    return Global.knightQuantity += 2;
+  public void Recrutar(Variables Global) {
+     Global.knightQuantity += 2;
   }
 
-  private Object Reunir(Variables Global) {
-    return Global.knightDamage += Global.totalDamage() + (double) Global.knightQuantity / 2;
+  private void Reunir(Variables Global) {
+     Global.knightDamage += Global.totalDamage() + (double) Global.knightQuantity / 2;
   }
 
-  public Object Sacrificar(Variables Global) {
+  public void Sacrificar(Variables Global) {
     Global.knightQuantity -= 2;
-    return Global.knightDamage += Global.knightDamage * 1;
+     Global.knightDamage += Global.knightDamage * 1;
   }
 
-  public Object Treinar(Variables Global) {
-    return Global.knightDamage++;
+  public void Treinar(Variables Global) {
+     Global.knightDamage++;
   }
 
-  public Object Atacar(Variables Global) {
-    return Global.totalDamage() - Global.enemyHealth();
-  }
 }

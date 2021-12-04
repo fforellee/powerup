@@ -8,16 +8,16 @@ import mechanics.*;
 
 public class Enemy {
 
-    public int vida;
-    public int dano;
+    public int health;
+    public int damage;
 
-    public Enemy(int vida,int dano){
-        this.vida = vida;
-        this.dano = dano;
+    public Enemy(int health,int damage){
+        this.health = health;
+        this.damage = damage;
     }
 
-    public void printar(){
-        System.out.println("Vida"+this.vida);
-        System.out.println("Dano"+this.dano);
+    public void print(){
+        System.out.println("Vida"+this.health);
+        System.out.println("Dano"+this.damage);
     }
 }

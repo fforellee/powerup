@@ -15,9 +15,10 @@ public class Main {
                 Variables Global = new Variables();
                 Stage Stage = new Stage();
                 Deck Deck = new Deck();
-                Hand Hand = new Hand(Deck);
+                Hand hand = new Hand(Deck);
 
-                String acao;
+                boolean fase_de_acao = true;
+                int userChoice;
 
 
                 Enemy[] inimigos = new Enemy[5]; // One to rule them all
@@ -28,65 +29,61 @@ public class Main {
                
                 int fase_atual = 1;
 
-                System.out.println(" _______  _______  _     _  _______  ______      __   __  _______    __  ");
-                System.out.println("|       ||       || | _ | ||       ||    _ |    |  | |  ||       |  |  | ");
-                System.out.println("|    _  ||   _   || || || ||    ___||   | ||    |  | |  ||    _  |  |  | ");
-                System.out.println("|   |_| ||  | |  ||       ||   |___ |   |_||_   |  |_|  ||   |_| |  |  | ");
-                System.out.println("|    ___||  |_|  ||       ||    ___||    __  |  |       ||    ___|  |__| ");
-                System.out.println("|   |    |       ||   _   ||   |___ |   |  | |  |       ||   |       __  ");
-                System.out.println("|___|    |_______||__| |__||_______||___|  |_|  |_______||___|      |__| ");
-                System.out.println("                                                                         ");
+                // System.out.println("     _______  _______  _     _  _______  ______      __   __  _______    __  ");
+                // System.out.println("    |       ||       || | _ | ||       ||    _ |    |  | |  ||       |  |  | ");
+                // System.out.println("    |    _  ||   _   || || || ||    ___||   | ||    |  | |  ||    _  |  |  | ");
+                // System.out.println("    |   |_| ||  | |  ||       ||   |___ |   |_||_   |  |_|  ||   |_| |  |  | ");
+                // System.out.println("    |    ___||  |_|  ||       ||    ___||    __  |  |       ||    ___|  |__| ");
+                // System.out.println("    |   |    |       ||   _   ||   |___ |   |  | |  |       ||   |       __  ");
+                // System.out.println("    |___|    |_______||__| |__||_______||___|  |_|  |_______||___|      |__| ");
+                // System.out.println("                                                                         ");
 
-                 
-                 
-                 
-                 
-                 
-                 
-                
+                // Thread.sleep(3000); 
 
-                Thread.sleep(3000); 
+                // System.out.println( "\nAo acordar, você se depara perdido no primeiro andar de um lugar que parece uma masmorra...");
+                // System.out.println( "\nA única coisa que você sabe é que deve lutar para sobreviver e escapar desse pesadelo!");
 
-                System.out.println( "\nAo acordar, você se depara perdido no primeiro andar de um lugar que parece uma masmorra...");
-                System.out.println( "\nA única coisa que você sabe é que deve lutar para sobreviver e escapar desse pesadelo!");
+                // Thread.sleep(3000); 
 
-                Thread.sleep(3000); 
+                // System.out.println("\n[!] Em suas mãos aparecem misteriosamente sete cartas mágicas.");
+                // System.out.println("\nVocê consegue sentir que elas estão imbuídas com poderes inimagináveis...");
 
-                System.out.println("\n[!] Em suas mãos aparecem misteriosamente sete cartas mágicas.");
-                System.out.println("\nVocê consegue sentir que elas estão imbuídas com poderes inimagináveis...");
-
-                Thread.sleep(3000); 
+                // Thread.sleep(3000); 
+                // System.out.println(Global.playerHealth);
+                // Global.playerHealth = 10;
+                // System.out.println(Global.playerHealth);
 
                 while(fase_atual <= inimigos.length){
-                    System.out.println("\n--------------- GAME START -----------------");
-                    System.out.println("Você se encontra no " +fase_atual+ "° Andar!");
+                    // System.out.println("\n--------------- GAME START -----------------");
+                    // System.out.println("Você se encontra no " +fase_atual+ "° Andar!");
 
-                    Thread.sleep(1500); 
+                    // Thread.sleep(1500); 
 
-                    System.out.println("Cuidado! Goblins se aproximam!  Vida:"+inimigos[fase_atual].vida+ " Dano:"+ inimigos[fase_atual].dano);
+                    System.out.println("Cuidado! Goblins se aproximam!  Vida:"+inimigos[fase_atual].health+ " Dano:"+ inimigos[fase_atual].damage);
 
+                    System.out.println("\n");
 
-                    // switch acao{
-                    //     case 1:
-                    //         Hand.useCard(i,Global);
-                    //         break;
-                    // }
-                    //Acoes: Atacar, usar ate 3 cartas
-                    // Calcula o dano
-                    // Decrementa da vida do espirito sombrio
+                    // Thread.sleep(1500); 
 
-                        // inimigo.vida -= sofreDano();
+                    System.out.println("Escolha uma carta! (digite o numero da carta para usa-la) \n "+hand);
+                    Global.print();
 
-                    //Acao do inimigo
-                    // Calcula o dano
-                    // Decrementa da vida do jogador
+                    userChoice = in.nextInt(); 
+                    hand.chosenCard(userChoice).useCard(userChoice,Global);
+
+                    Global.print();
                     
-                        // vida -= inimigo.atacar();
-                    
-                        
-                    //Morre ou mata, se vida do inimigo=0 proxima fase, se vida do jogador=0 GAME OVER
+                     // while(fase_de_acao){
 
-                    fase_atual++;
+
+                     //     System.out.println("Digite A para atacar!");
+
+                     //     userChoice = in.nextInt(); 
+                         
+
+                     // }
+
+                     fase_atual++;
                 }
 
         }
