@@ -4,19 +4,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-  final int CARD_VARIETY = 6;
+  final int CARD_VARIETY = 5;
   final int CARD_QUANTITY = 7;
 
-  private ArrayList<Card> Deck = new ArrayList<>();
+  private ArrayList<Card> Deck = new ArrayList<>(CARD_QUANTITY);
 
-  /**
-   * Cria um Deck com DECK_SIZE de tamanho. Esse Deck já estará embaralhado desde
-   * o momento de sua criação
-   */
   public Deck() {
     for (int i = 1; i <= CARD_VARIETY; i++) {
-      // Adicionando cartas comuns ao Deck
-      if (i <= 7) {
+      if (i <= 5) {
         for (int j = 0; j < CARD_QUANTITY; j++) {
           Deck.add(new Card(i));
         }
@@ -24,32 +19,21 @@ public class Deck {
     }
     this.shuffle();
   }
-  
-  /**
-   * Retira uma Carta do topo do Deck, transformando-o em uma Pilha
-   * 
-   * @return Card
-   */
+
   public Card removeCard() {
     return Deck.remove(Deck.size() - 1);
   }
 
-  /**
-   * Método para embaralhar o Deck, utilizando Collections.shuffle();
-   */
   private void shuffle() {
     Collections.shuffle(Deck);
   }
 
-  /**
-   * Imprime o Deck no formato de uma Array
-   */
   public String toString() {
     StringBuilder sb = new StringBuilder("[");
 
     for (int i = 0; i < Deck.size(); i++) {
-      sb.append(Deck.get(i).nome);
-      
+      sb.append(Deck.get(i).name);
+
       if (i < Deck.size() - 1) {
         sb.append(", ");
       }

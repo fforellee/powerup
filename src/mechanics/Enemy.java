@@ -1,23 +1,20 @@
 package mechanics;
 
-import java.util.Random;
-import java.util.Scanner;
-
-import global.Variables;
-import mechanics.*;
-
 public class Enemy {
 
+    public String name;
     public int health;
     public int damage;
 
-    public Enemy(int health,int damage){
+    public Enemy(String name, int health, int damage) {
+        this.name = name;
         this.health = health;
         this.damage = damage;
     }
 
-    public void print(){
-        System.out.println("Vida"+this.health);
-        System.out.println("Dano"+this.damage);
+    public void printEnemyData() {
+        System.out.println("Nome: " + name);
+        System.out.println("Vida: " + health);
+        System.out.println("Dano: " + damage);
     }
 }

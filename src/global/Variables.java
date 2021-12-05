@@ -1,29 +1,21 @@
 package global;
 
-import mechanics.Stage;
-
 public class Variables {
 
   public int score = 0;
-  public static int playerHealth = 30;
+  public int playerHealth = 30;
   public int knightQuantity = 5;
   public int knightDamage = 1;
   public int usedCards = 0;
 
-  /**
-   * Retorna o dano total dos cavaleiros
-   * @return
-   */
-  public int totalDamage() {
-    return this.knightQuantity * this.knightDamage;
+  // O DANO TOTAL DOS CAVALEIROS NÃO ESTA SENDO ATUALIZADO QUANDO USA UMA CARTA
+  public int totalDamage = knightDamage * knightQuantity;
+
+  public void printGlobalData() {
+    System.out.println("\nHP do jogador = " + playerHealth);
+    System.out.println("Qtd de cavaleiros = " + knightQuantity);
+    System.out.println("Dano de cada cavaleiro = " + knightDamage);
+    System.out.println("Dano total = " + totalDamage);
   }
-/**
- * Retorna o HP do inimigo
- * @return
- */
-  public void print(){
-        System.out.println("Vida "+this.playerHealth);
-        System.out.println("Quantidade de cavaleiros "+this.knightQuantity);
-        System.out.println("Dano total"+this.knightDamage);
-  }
+
 }
