@@ -19,20 +19,16 @@ public class Hand {
             playerHand.add(Deck.removeCard());
         }
     }
-
-    public void useCard(int userChoice, Variables Global) {
-        if (Global.usedCards <= 2) {
-            playerHand.remove(chosenCard(userChoice));
-            Global.usedCards++;
-        }
-    }
-
     public Card chosenCard(int userChoice) {
         return playerHand.get(userChoice);
     }
 
     public int currentHand() {
         return playerHand.size();
+    }
+
+    public void removeCard(int userChoice) {
+        playerHand.remove(userChoice); 
     }
 
     public String toString() {

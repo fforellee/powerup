@@ -35,63 +35,58 @@ public class Card {
     }
   }
 
-  public void useCard(int id, Variables Global,int userChoice,Hand hand) {
+  public void useCard(int id, Variables Global) {
     switch (this.id) {
       case 1:
-        Curar(Global,userChoice,hand);
+        Curar(Global);
         break;
       case 2:
-        Recrutar(Global,userChoice,hand);
+        Recrutar(Global);
         break;
       case 3:
-        Reunir(Global,userChoice,hand);
+        Reunir(Global);
         break;
       case 4:
-        Sacrificar(Global,userChoice,hand);
+        Sacrificar(Global);
         break;
       case 5:
-        Treinar(Global,userChoice,hand);
+        Treinar(Global);
         break;
     }
   }
 
-  public void Curar(Variables Global,int userChoice,Hand hand) {
+  public void Curar(Variables Global) {
     if (Global.knightQuantity >= 4) {
       Global.playerHealth += 5;
       Global.knightQuantity -= 1;
-      hand.removeCard(userChoice);
     } else {
       System.out.println("\n[!] A carta não pôde ser usada, o número de cavaleiros é muito baixo.");
-      Global.usedCards--; 
     }
-      Global.computeTotalDamage(); 
+      Global.computeTotalDamage();
   }
 
-  public void Recrutar(Variables Global,int userChoice,Hand hand) {
+  public void Recrutar(Variables Global) {
     Global.knightQuantity += 2;
-    hand.removeCard(userChoice);
     Global.computeTotalDamage();
   }
 
-  private void Reunir(Variables Global,int userChoice,Hand hand) {
+  private void Reunir(Variables Global) {
     Global.knightDamage += (Global.knightQuantity / 2);
+    Global.computeTotalDamage();
   }
 
-  public void Sacrificar(Variables Global,int userChoice,Hand hand) {
+  public void Sacrificar(Variables Global,Hand hand) {
     if (Global.knightQuantity >= 3) {
       Global.knightQuantity -= 2;
       Global.knightDamage += Global.knightDamage * 1;
       Global.computeTotalDamage();
-      hand.removeCard(userChoice);
     } else {
       System.out.println("\n[!] A carta não pôde ser usada, o número de cavaleiros é muito baixo.");
-      Global.usedCards--;
     }
   }
 
-  public void Treinar(Variables Global,int userChoice,Hand hand) {
+  public void Treinar(Variables Global) {
     Global.knightDamage++;
-    hand.removeCard(userChoice);
     Global.computeTotalDamage();
   }
 
