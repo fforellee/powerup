@@ -70,10 +70,10 @@ public class Main {
                 Enemy[] Enemy = new Enemy[5]; // One to rule them all
 
                 Enemy[0] = new Enemy("Morto-vivo", 5, 5);
-                Enemy[1] = new Enemy("Espectro da Escuridão", 100, 10); // 15, 8
-                Enemy[2] = new Enemy("Cavaleiro Legionário", 10, 10); // 30, 10
-                Enemy[3] = new Enemy("Sentinela Real", 10, 12); // 50, 12
-                Enemy[4] = new Enemy("Alma das Cinzas", 10, 20); // 100, 20
+                Enemy[1] = new Enemy("Espectro da Escuridão", 15, 8); // 15, 8
+                Enemy[2] = new Enemy("Cavaleiro Legionário", 30, 10); // 30, 10
+                Enemy[3] = new Enemy("Sentinela Real", 50, 12); // 50, 12
+                Enemy[4] = new Enemy("Alma das Cinzas", 100, 20); // 100, 20
 
                 // Thread.sleep(3000);
                 int userChoice = 0;
@@ -88,66 +88,66 @@ public class Main {
                                                 "\nVocê colidiu com o " + Enemy[i].name
                                                                 + " e a batalha foi iniciada!");
 
-                                // 100% FUNCIONAL
-                                while (Global.usedCards < 3) {
+                                while (Enemy[i].health > 0) {
+                                        while (Global.usedCards < 3) {
 
-                                        System.out.println("\nMão: " + Hand);
-                                        do {
-                                                System.out.print("\nEscolha a carta que deseja utilizar: ");
-                                                userChoice = in.nextInt();
-                                        } while (userChoice < 0 || userChoice > Hand.currentHand() - 1);
+                                                System.out.println("\nMão: " + Hand);
+                                                do {
+                                                        System.out.print("\nEscolha a carta que deseja utilizar: ");
+                                                        userChoice = in.nextInt();
+                                                } while (userChoice < 0 || userChoice > Hand.currentHand() - 1);
 
-                                        System.out.println("\nVocê utilizou a carta "
-                                                        + Hand.chosenCard(userChoice).name + "!");
-                                        System.out.println("\n" + Hand.chosenCard(userChoice).description);
+                                                System.out.println("\nVocê utilizou a carta "
+                                                                + Hand.chosenCard(userChoice).name + "!");
+                                                System.out.println("\n" + Hand.chosenCard(userChoice).description);
 
-                                        Hand.chosenCard(userChoice).useCard(userChoice, Global);
-                                        Hand.useCard(userChoice, Global);
+                                                Hand.chosenCard(userChoice).useCard(userChoice, Global);
+                                                Hand.useCard(userChoice, Global);
 
-                                        Global.printGlobalData();
+                                                Global.printGlobalData();
+                                        }
+
+                                        Enemy[i].health -= Global.totalDamage;
+
+                                        if (Enemy[i].health <= 0) {
+                                                System.out.println(
+                                                                "\n[!] Você utilizou todas as cartas que podia neste round, e atacou o inimigo. ");
+
+                                                System.out.println("\n[!] O " + Enemy[i].name + " sofreu "
+                                                                + Global.totalDamage + " de dano!");
+
+                                                System.out.println("HP do inimigo: " + Enemy[i].health);
+
+                                                enemyDestroyed(Hand, Deck);
+
+                                                currentStage++;
+
+                                        } else {
+                                                System.out.println(
+                                                                "\n[!] Você utilizou todas as cartas que podia neste round, e atacou o inimigo. ");
+
+                                                System.out.println("\n[!] O " + Enemy[i].name + " sofreu " +
+                                                                Global.totalDamage
+                                                                + " de dano!");
+
+                                                System.out.println(
+                                                                "\nO espírito sombrio sofreu dano, mas ainda possui "
+                                                                                + Enemy[i].health
+                                                                                + " de vida!");
+
+                                                Global.playerHealth -= Enemy[i].damage;
+
+                                                System.out.println("\nO " + Enemy[i].name
+                                                                + " o ataca, causando "
+                                                                + Enemy[i].damage + " de dano ao jogador!");
+
+                                                System.out.println("\nHP do jogador: " + Global.playerHealth);
+
+                                                Hand.fillHand(Deck);
+                                        }
+
+                                        Global.usedCards = 0;
                                 }
-
-                                Enemy[i].health -= Global.totalDamage;
-
-                                if (Enemy[i].health <= 0) {
-                                        System.out.println(
-                                                        "\n[!] Você utilizou todas as cartas que podia neste round, e atacou o inimigo. ");
-
-                                        System.out.println("\n[!] O " + Enemy[i].name + " sofreu "
-                                                        + Global.totalDamage + " de dano!");
-
-                                        System.out.println("HP do inimigo: " + Enemy[i].health);
-
-                                        enemyDestroyed(Hand, Deck);
-
-                                        currentStage++;
-
-                                } else {
-                                        System.out.println(
-                                                        "\n[!] Você utilizou todas as cartas que podia neste round, e atacou o inimigo. ");
-
-                                        System.out.println("\n[!] O " + Enemy[i].name + " sofreu " +
-                                                        Global.totalDamage
-                                                        + " de dano!");
-
-                                        System.out.println(
-                                                        "\nO espírito sombrio sofreu dano, mas ainda possui "
-                                                                        + Enemy[i].health
-                                                                        + " de vida!");
-
-                                        Global.playerHealth -= Enemy[i].damage;
-
-                                        System.out.println("\nO " + Enemy[i].name
-                                                        + " o ataca, causando "
-                                                        + Enemy[i].damage + " de dano ao jogador!");
-
-                                        System.out.println("\nHP do jogador: " + Global.playerHealth);
-
-                                        Hand.fillHand(Deck);
-                                }
-
-                                Global.usedCards = 0;
-
                                 if (Global.playerHealth <= 0) {
                                         break;
                                 }
