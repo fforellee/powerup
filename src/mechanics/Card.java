@@ -14,7 +14,7 @@ public class Card {
     switch (id) {
       case 1:
         this.name = "Curar";
-        this.description = "[!] Cura 5 pontos da vida do jogador, mas elimina 3 de seus cavaleiros!";
+        this.description = "[!] Cura 5 pontos da vida do jogador, mas elimina 1 cavaleiro do jogador!";
         break;
       case 2:
         this.name = "Recrutar";
@@ -22,7 +22,7 @@ public class Card {
         break;
       case 3:
         this.name = "Reunir";
-        this.description = "[!] Aumenta o dano total do jogador!";
+        this.description = "[!] Aumenta o dano total do jogador baseado na quantidade cavaleiros!";
         break;
       case 4:
         this.name = "Sacrificar";
@@ -62,14 +62,17 @@ public class Card {
     } else {
       System.out.println("\n[!] A carta não pôde ser usada, o número de cavaleiros é muito baixo.");
     }
+    Global.computeTotalDamage();
   }
 
   public void Recrutar(Variables Global) {
     Global.knightQuantity += 2;
+    Global.computeTotalDamage();
   }
 
   private void Reunir(Variables Global) {
-    Global.totalDamage += Global.knightDamage + (Global.knightQuantity / 2);
+    Global.knightDamage += (Global.knightQuantity / 3);
+    Global.computeTotalDamage();
   }
 
   public void Sacrificar(Variables Global) {
@@ -79,10 +82,12 @@ public class Card {
     } else {
       System.out.println("\n[!] A carta não pôde ser usada, o número de cavaleiros é muito baixo.");
     }
+    Global.computeTotalDamage();
   }
 
   public void Treinar(Variables Global) {
     Global.knightDamage++;
+    Global.computeTotalDamage();
   }
 
 }

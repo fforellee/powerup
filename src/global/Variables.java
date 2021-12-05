@@ -13,6 +13,20 @@ public class Variables {
     System.out.println("\nHP do jogador = " + playerHealth);
     System.out.println("Qtd de cavaleiros = " + knightQuantity);
     System.out.println("Dano de cada cavaleiro = " + knightDamage);
+    System.out.println("Dano total = " + totalDamage);
+  }
+
+  public void resetGlobalVariables() {
+    score = 0;
+    playerHealth = 30;
+    knightQuantity = 5;
+    knightDamage = 1;
+    totalDamage = 0;
+    usedCards = 0;
+  }
+
+  public void computeTotalDamage() {
+    this.totalDamage = this.knightQuantity * this.knightDamage;
   }
 
 }
