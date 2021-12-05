@@ -59,6 +59,7 @@ public class Card {
     if (Global.knightQuantity >= 4) {
       Global.playerHealth += 5;
       Global.knightQuantity -= 3;
+      Global.computeTotalDamage();
     } else {
       System.out.println("\n[!] A carta não pôde ser usada, o número de cavaleiros é muito baixo.");
     }
@@ -66,16 +67,19 @@ public class Card {
 
   public void Recrutar(Variables Global) {
     Global.knightQuantity += 2;
+    Global.computeTotalDamage();
   }
 
   private void Reunir(Variables Global) {
-    Global.totalDamage += Global.knightDamage + (Global.knightQuantity / 2);
+    Global.knightDamage += (Global.knightQuantity / 2);
+    Global.computeTotalDamage();
   }
 
   public void Sacrificar(Variables Global) {
     if (Global.knightQuantity >= 3) {
       Global.knightQuantity -= 2;
       Global.knightDamage += Global.knightDamage * 1;
+      Global.computeTotalDamage();
     } else {
       System.out.println("\n[!] A carta não pôde ser usada, o número de cavaleiros é muito baixo.");
     }
@@ -83,6 +87,7 @@ public class Card {
 
   public void Treinar(Variables Global) {
     Global.knightDamage++;
+    Global.computeTotalDamage();
   }
 
 }

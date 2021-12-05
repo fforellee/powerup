@@ -74,6 +74,7 @@ public class Main {
 
                                                 Hand.chosenCard(userChoice).useCard(userChoice, Global);
                                                 Hand.useCard(userChoice, Global);
+                                                Global.printGlobalData(); 
                                         }
 
                                         Enemy[i].health -= Global.totalDamage;
@@ -102,6 +103,7 @@ public class Main {
 
                                                 Hand.fillHand(Deck);
 
+                                                Global.printGlobalData(); 
                                         } else {
                                                 Global.usedCards = 0;
 
@@ -123,6 +125,7 @@ public class Main {
 
                                                 System.out.println("HP do jogador: " + Global.playerHealth);
 
+                                                Global.printGlobalData(); 
                                         }
 
                                 } while (Enemy[i].health > 0);
@@ -130,68 +133,5 @@ public class Main {
                 }
 
                 in.close();
-
-                // System.out.println(" _______ _______ _ _ _______ ______ __ __ _______ __ ");
-                // System.out.println(" | || || | _ | || || _ | | | | || | | | ");
-                // System.out.println(" | _ || _ || || || || ___|| | || | | | || _ | | | ");
-                // System.out.println(" | |_| || | | || || |___ | |_||_ | |_| || |_| | | | ");
-                // System.out.println(" | ___|| |_| || || ___|| __ | | || ___| |__| ");
-                // System.out.println(" | | | || _ || |___ | | | | | || | __ ");
-                // System.out.println(" |___| |_______||__| |__||_______||___| |_|
-                // |_______||___| |__| ");
-                // System.out.println(" ");
-
-                // Thread.sleep(3000);
-
-                // System.out.println( "\nAo acordar, você se depara perdido no primeiro andar
-                // de um lugar que parece uma masmorra...");
-                // System.out.println( "\nA única coisa que você sabe é que deve lutar para
-                // sobreviver e escapar desse pesadelo!");
-
-                // Thread.sleep(3000);
-
-                // System.out.println("\n[!] Em suas mãos aparecem misteriosamente sete cartas
-                // mágicas.");
-                // System.out.println("\nVocê consegue sentir que elas estão imbuídas com
-                // poderes inimagináveis...");
-
-                // Thread.sleep(3000);
-                // System.out.println(Global.playerHealth);
-                // Global.playerHealth = 10;
-                // System.out.println(Global.playerHealth);
-
-                /*
-                 * while (fase_atual <= Enemy.length) {
-                 * // System.out.println("\n--------------- GAME START -----------------");
-                 * // System.out.println("Você se encontra no " +fase_atual+ "° Andar!");
-                 * 
-                 * // Thread.sleep(1500);
-                 * 
-                 * // System.out.println("Cuidado! Goblins se aproximam!
-                 * // Vida:"+Enemy[fase_atual].health+ " Dano:"+
-                 * Enemy[fase_atual].damage);
-                 * 
-                 * // Thread.sleep(1500);
-                 * 
-                 * System.out.println("\nMão: " + Hand);
-                 * 
-                 * System.out.println("\nQual carta deseja usar?");
-                 * userChoice = in.nextInt();
-                 * Hand.chosenCard(userChoice).useCard(userChoice, Global);
-                 * 
-                 * Global.printGlobalVariables();
-                 * 
-                 * while(fase_de_acao){
-                 * 
-                 * System.out.println("Digite A para atacar!");
-                 * 
-                 * userChoice = in.nextInt();
-                 * 
-                 * }
-                 * 
-                 * fase_atual++;
-                 * }
-                 * in.close();
-                 */
         }
 }
