@@ -7,9 +7,9 @@ public class Main {
 
         public static void welcomeToALonelyPlace() {
                 System.out.println(
-                        "\nAo acordar, você se depara perdido no primeiro andar de um lugar que parece uma masmorra...");
+                                "\nAo acordar, você se depara perdido no primeiro andar de um lugar que parece uma masmorra...");
                 System.out.println(
-                        "\nA única coisa que você sabe é que deve lutar para sobreviver e escapar desse pesadelo!");
+                                "\nA única coisa que você sabe é que deve lutar para sobreviver e escapar desse pesadelo!");
         }
 
         public static void gameStart() {
@@ -36,31 +36,43 @@ public class Main {
                 System.out.println("--------------------------");
         }
 
-        public static void main(String[] args) throws Exception {
+        public static void enemyDestroyed(Hand Hand, Deck Deck) {
+                System.out.println("\nO espírito sombrio foi destruido!");
+
+                System.out.println(
+                                "\nCom o inimigo derrotado, uma escada que parece o levar para o próximo andar aparece como se fosse mágica...");
+
+                System.out.println("\nCarregando novo andar, por favor aguarde...");
+
+                Hand.fillHand(Deck);
+        }
+
+        public static void main(String[] args) {
 
                 Scanner in = new Scanner(System.in);
 
                 Variables Global = new Variables();
                 Deck Deck = new Deck();
                 Hand Hand = new Hand(Deck);
-                // Stage Stage = new Stage();
 
                 int userChoice = 0;
-                int currentStage = 1;
+                int currentStage = 0;
 
                 Enemy[] Enemy = new Enemy[5]; // One to rule them all
 
                 Enemy[0] = new Enemy("Morto-vivo", 5, 5);
-                Enemy[1] = new Enemy("Espectro da Escuridão", 15, 8);
-                Enemy[2] = new Enemy("Cavaleiro Legionário", 30, 10);
-                Enemy[3] = new Enemy("Sentinela Real", 50, 12);
-                Enemy[4] = new Enemy("Alma das Cinzas", 100, 20);
+                Enemy[1] = new Enemy("Espectro da Escuridão", 10, 8); // 15, 8
+                Enemy[2] = new Enemy("Cavaleiro Legionário", 10, 10); // 30, 10
+                Enemy[3] = new Enemy("Sentinela Real", 10, 12); // 50, 12
+                Enemy[4] = new Enemy("Alma das Cinzas", 10, 20); // 100, 20
 
-                while (currentStage <= Enemy.length) {
-                        for (int i = 0; i <= Enemy.length; i++) {
-                                System.out.println("\nVocê se encontra atualmente no " + currentStage + "° Andar!");
-
-                                System.out.println("\n...");
+                while (currentStage < Enemy.length) {
+                        for (int i = 0; i < Enemy.length; i++) {
+                                Global.usedCards = 0;
+                                System.out.println("\n<<<<< Você se encontra atualmente no " + (currentStage + 1)
+                                                + "° Andar! >>>>>");
+                                System.out.println(
+                                                "\nVocê colidiu com o " + Enemy[i].name + " e a batalha foi iniciada!");
 
                                 do {
                                         while (Global.usedCards < 3) {
@@ -75,12 +87,10 @@ public class Main {
                                                 Hand.chosenCard(userChoice).useCard(userChoice, Global);
                                                 Hand.useCard(userChoice, Global);
                                         }
-
+                                        
                                         Enemy[i].health -= Global.totalDamage;
 
                                         if (Global.totalDamage >= Enemy[i].health) {
-                                                Global.score += Enemy[i].health;
-
                                                 System.out.println(
                                                                 "\n[!] Você utilizou todas as cartas que podia neste round, e atacou o inimigo. ");
 
@@ -89,41 +99,37 @@ public class Main {
 
                                                 System.out.println("HP do inimigo: " + Enemy[i].health);
 
-                                                System.out.println("\nO espírito sombrio foi destruido!");
+                                                enemyDestroyed(Hand, Deck);
 
                                                 currentStage++;
-
-                                                System.out.println(
-                                                        "\nCom o inimigo derrotado, uma escada que parece o levar para o próximo andar aparece como se fosse mágica...");
-
-                                                System.out.println("\nCarregando novo andar, por favor aguarde...");
-
-                                                System.out.println("\n...");
-
-                                                Hand.fillHand(Deck);
-
-                                        } else {
-                                                Global.usedCards = 0;
-
-                                                System.out.println(
-                                                        "\n[!] Você utilizou todas as cartas que podia neste round, e atacou o inimigo. ");
-
-                                                System.out.println("\n[!] O " + Enemy[i].name + " sofreu " + Global.totalDamage
-                                                        + " de dano!");
-
-                                                System.out.println("HP do inimigo: " + Enemy[i].health);
-
-                                                System.out.println("\nO espírito sombrio sofreu dano, mas ainda possui "
-                                                        + Enemy[i].health + " de vida!");
-
-                                                System.out.println("\nO " + Enemy[i].name + " o ataca, causando "
-                                                        + Enemy[i].damage + " de dano ao jogador!");
-                                                
-                                                Global.playerHealth -= Enemy[i].damage;
-
-                                                System.out.println("HP do jogador: " + Global.playerHealth);
-
                                         }
+                                        /*
+                                         * else {
+                                         * Global.usedCards = 0;
+                                         * 
+                                         * System.out.println(
+                                         * "\n[!] Você utilizou todas as cartas que podia neste round, e atacou o inimigo. "
+                                         * );
+                                         * 
+                                         * System.out.println("\n[!] O " + Enemy[i].name + " sofreu " +
+                                         * Global.totalDamage
+                                         * + " de dano!");
+                                         * 
+                                         * System.out.println("HP do inimigo: " + Enemy[i].health);
+                                         * 
+                                         * System.out.println("\nO espírito sombrio sofreu dano, mas ainda possui "
+                                         * + Enemy[i].health + " de vida!");
+                                         * 
+                                         * System.out.println("\nO " + Enemy[i].name + " o ataca, causando "
+                                         * + Enemy[i].damage + " de dano ao jogador!");
+                                         * 
+                                         * Global.playerHealth -= Enemy[i].damage;
+                                         * 
+                                         * System.out.println("HP do jogador: " + Global.playerHealth);
+                                         * 
+                                         * Hand.fillHand(Deck);
+                                         * }
+                                         */
 
                                 } while (Enemy[i].health > 0);
                         }

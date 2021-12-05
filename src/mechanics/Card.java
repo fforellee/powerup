@@ -58,7 +58,7 @@ public class Card {
   public void Curar(Variables Global) {
     if (Global.knightQuantity >= 4) {
       Global.playerHealth += 5;
-      Global.knightQuantity -= 3;
+      Global.knightQuantity -= 1;
     } else {
       System.out.println("\n[!] A carta não pôde ser usada, o número de cavaleiros é muito baixo.");
     }

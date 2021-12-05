@@ -1,4 +1,4 @@
-## IMPORTANTE
+# IMPORTANTE
 
 ## Resumo do funcionamento principal
 
