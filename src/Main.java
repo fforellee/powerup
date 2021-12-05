@@ -5,6 +5,20 @@ import mechanics.*;
 
 public class Main {
 
+        public static void combat(Variables Global, int userChoice, Hand Hand, Scanner in) {
+                while (Global.usedCards < 3) {
+                        System.out.println("\nMão: " + Hand);
+                        System.out.print("\nEscolha uma carta por seu número: ");
+                        userChoice = in.nextInt();
+
+                        System.out.println("\nVocê utilizou a carta " + Hand.chosenCard(userChoice).name + "!");
+                        System.out.println("\n" + Hand.chosenCard(userChoice).description);
+
+                        Hand.chosenCard(userChoice).useCard(userChoice, Global);
+                        Hand.useCard(userChoice, Global);
+                }
+        }
+
         public static void main(String[] args) throws Exception {
 
                 Scanner in = new Scanner(System.in);
@@ -12,13 +26,13 @@ public class Main {
                 Variables Global = new Variables();
                 Deck Deck = new Deck();
                 Hand Hand = new Hand(Deck);
+                Stage Stage = new Stage();
 
-                // boolean fase_de_acao = true;
-                int userChoice;
+                int userChoice = 0;
 
                 Enemy[] inimigos = new Enemy[5]; // One to rule them all
 
-                inimigos[0] = new Enemy("Morto-vivo", 5, 10);
+                inimigos[0] = new Enemy("Morto-vivo", 5, 5);
                 inimigos[1] = new Enemy("Espectro da Escuridão", 15, 8);
                 inimigos[2] = new Enemy("Cavaleiro Legionário", 30, 10);
                 inimigos[3] = new Enemy("Sentinela Real", 50, 12);
@@ -82,36 +96,55 @@ public class Main {
                  * jogador
                  * Utiliza a carta e a remove da Mão
                  */
-                while (Global.usedCards < 3) {
-                        System.out.println("\nMão: " + Hand);
-                        System.out.print("\nEscolha uma carta por seu número: ");
-                        userChoice = in.nextInt();
-                        Hand.chosenCard(userChoice).useCard(userChoice, Global);
-                        Hand.useCard(userChoice, Global);
-                }
+                /*
+                 * while (Global.usedCards < 3) {
+                 * System.out.println("\nMão: " + Hand);
+                 * System.out.print("\nEscolha uma carta por seu número: ");
+                 * userChoice = in.nextInt();
+                 * 
+                 * System.out.println("\nVocê utilizou a carta " +
+                 * Hand.chosenCard(userChoice).name + "!");
+                 * System.out.println("\n" + Hand.chosenCard(userChoice).description);
+                 * 
+                 * Hand.chosenCard(userChoice).useCard(userChoice, Global);
+                 * Hand.useCard(userChoice, Global);
+                 * }
+                 */
 
                 /**
                  * Loop principal do jogo (tentativa)
                  * Se o dano total do cavaleiro for maior ou igual ao HP do inimigo do andar
                  * atual, pula de andar
                  */
+                for (int i = 0; i < inimigos.length; i++) {
+                        combat(Global, userChoice, Hand, in);
 
-                /* int currentStage = 1;
-                while (currentStage < inimigos.length) {
+                        if (Global.usedCards == 3) {
+                                System.out.println(
+                                                "\n[!] Você utilizou todas as cartas que podia neste round, e atacou o inimigo. ");
+                                System.out.println("[!] O inimigo sofreu " + Global.totalDamage + " de dano!");
+                        }
 
+                        if (Global.totalDamage >= inimigos[i].health) {
+                                System.out.println("\nO espírito sombrio foi destruido!");
+
+                                System.out.println(
+                                                "\nCom o inimigo derrotado, uma escada que parece o levar para o próximo andar aparece como se fosse mágica...");
+
+                                System.out.println("\n[...] Carregando novo andar, por favor aguarde.");
+
+                                System.out.println(
+                                                "\n[!] Ao subir de andar, novas cartas surgem misteriosamente em suas mãos...");
+
+                                Hand.fillHand(Deck);
+
+                                System.out.println(
+                                                "\n[?] Você sente uma espécie de déjà vu, mas decide ignorar essa sensação.");
+                                Stage.newStage(Hand, Deck);
+                        } else {
+                                combat(Global, userChoice, Hand, in);
+                        }
                 }
-
-                if (Global.totalDamage() >= inimigos[0].health) {
-                        System.out.println("O espírito sombrio foi derrotado!");
-                        System.out.println("Você é levado para o próximo andar.");
-                        currentStage++;
-                } else {
-                        System.out.println(
-                                        "Você deu dano ao inimigo, mas parece que não foi o suficiente");
-                        System.out.println("Você tomou 5 de dano!");
-                }
-
-                System.out.println(currentStage); */
 
                 /*
                  * while (fase_atual <= inimigos.length) {
