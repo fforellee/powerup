@@ -25,9 +25,9 @@ public class Main {
                 Enemy[] Enemy = new Enemy[5];
 
                 Enemy[0] = new Enemy("Morto-vivo", 5, 5);
-                Enemy[1] = new Enemy("Espectro da Escuridão", 3, 10); //30 
-                Enemy[2] = new Enemy("Cavaleiro Legionário", 5, 15);//50
-                Enemy[3] = new Enemy("Sentinela Real", 10, 20);//100
+                Enemy[1] = new Enemy("Espectro da Escuridão", 15, 10);
+                Enemy[2] = new Enemy("Cavaleiro Legionário", 50, 15);
+                Enemy[3] = new Enemy("Sentinela Real", 100, 25);
                 Enemy[4] = new Enemy("Alma das Cinzas", 200, 40);
 
                 Screen.gameStartup();

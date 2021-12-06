@@ -21,7 +21,7 @@ public class Hand {
     }
 
     public void useCard(int userChoice, Variables Global) {
-        if (Global.usedCards < 3) { // Global.usedCards <= 2
+        if (Global.usedCards < 3) {
             playerHand.remove(chosenCard(userChoice));
             Global.usedCards++;
         }
