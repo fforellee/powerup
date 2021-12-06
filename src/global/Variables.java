@@ -20,6 +20,7 @@ public class Variables {
   public void computeTotalDamage(){
     this.totalDamage = this.knightQuantity * this.knightDamage;
   }
+
   public void resetGlobalVariables() {
     score = 0;
     playerHealth = 30;

@@ -150,7 +150,7 @@ public class Main {
                                                 if (Enemy[4].health <= 0) {
                                                         System.out.println("\nO espírito sombrio foi destruido!");
                                                         victoryAchieved(Global, currentStage);
-                                                        System.exit(0);
+                                                        System.exit();
                                                 } else {
                                                         enemyDestroyed(Hand, Deck);
                                                         currentStage++;
