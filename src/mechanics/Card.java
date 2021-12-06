@@ -1,8 +1,10 @@
 package mechanics;
 
 import global.Variables;
+import design.ConsoleColor;
 
 public class Card {
+  ConsoleColor Color = new ConsoleColor();
 
   public int id;
   public String name;
@@ -13,24 +15,26 @@ public class Card {
 
     switch (id) {
       case 1:
-        this.name = "Curar";
-        this.description = "[!] Cura 5 pontos de vida do jogador, mas elimina 1 de seus cavaleiros!";
+        this.name = Color.setColor("yellow", "Curar");
+        this.description = Color.setColor("yellow", "[!] Cura 5 pontos de vida, mas elimina 1 cavaleiro. ");
         break;
       case 2:
-        this.name = "Recrutar";
-        this.description = "[!] Aumenta em 2 a quantidade total de cavaleiros do jogador!";
+        this.name = Color.setColor("cyan", "Recrutar");
+        this.description = Color.setColor("cyan", "[!] Aumenta em 2 a quantidade total de cavaleiros. ");
         break;
       case 3:
-        this.name = "Reunir";
-        this.description = "[!] Aumenta o dano total do jogador baseado na quantidade de seus cavaleiros!";
+        this.name = Color.setColor("purple", "Reunir");
+        this.description = Color.setColor("purple",
+            "[!] Aumenta o poder de cada cavaleiro baseado na quantidade total. ");
         break;
       case 4:
-        this.name = "Sacrificar";
-        this.description = "[!] Sacrifica 2 cavaleiros, mas aumenta em 1 o dano de cada cavaleiro do jogador!";
+        this.name = Color.setColor("red", "Sacrificar");
+        this.description = Color.setColor("red",
+            "[!] Sacrifica 2 cavaleiros, mas aumenta em 1 ponto o poder de cada cavaleiro remanescente. ");
         break;
       case 5:
-        this.name = "Treinar";
-        this.description = "[!] Aumenta em 1 ponto o dano de cada cavaleiro do jogador!";
+        this.name = Color.setColor("green", "Treinar");
+        this.description = Color.setColor("green", "[!] Aumenta em 1 ponto o poder de cada cavaleiro. ");
         break;
     }
   }
@@ -60,7 +64,8 @@ public class Card {
       Global.playerHealth += 5;
       Global.knightQuantity -= 1;
     } else {
-      System.out.println("\n[!] Você tentou utilizar a carta, mas nada aconteceu.");
+      System.out
+          .println(Color.setColor("blue", "\n[?] A carta desapareceu de suas mãos ao utilizá-la, mas nada aconteceu."));
     }
     Global.computeTotalDamage();
   }
@@ -80,9 +85,10 @@ public class Card {
       Global.knightQuantity -= 2;
       Global.knightDamage += Global.knightDamage * 1;
     } else {
-      System.out.println("\n[!] Você tentou utilizar a carta, mas nada aconteceu.");
+      System.out
+          .println(Color.setColor("blue", "\n[?] A carta desapareceu de suas mãos ao utilizá-la, mas nada aconteceu."));
+      Global.computeTotalDamage();
     }
-    Global.computeTotalDamage();
   }
 
   public void Treinar(Variables Global) {
