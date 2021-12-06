@@ -14,6 +14,7 @@ public class Variables {
     System.out.println("Qtd de cavaleiros = " + knightQuantity);
     System.out.println("Dano de cada cavaleiro = " + knightDamage);
     System.out.println("Dano total = " + totalDamage);
+    System.out.println("Used cards = " + usedCards);
   }
 
   public void computeTotalDamage(){
