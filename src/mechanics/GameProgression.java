@@ -53,7 +53,7 @@ public class GameProgression {
                 Thread.sleep(3000);
 
                 System.out.println(Color.setColor("red",
-                                "\n[!] Você sente um ímpeto ardente como brasa em seu peito, que o motiva a derrotar seus inimigos! "));
+                                "\n[!] Você sente um ímpeto ardente como brasa em seu peito que o motiva a derrotar seus inimigos! "));
 
                 Thread.sleep(3000);
         }
@@ -105,7 +105,7 @@ public class GameProgression {
                 Thread.sleep(3000);
 
                 System.out.println(
-                                "\n[!] Ao derrotar o inimigo do quinto andar, um portal misterioso aparece embaixo de seus pés...");
+                                "\n[!] Ao derrotar o Senhor das Cinzas, um portal misterioso aparece embaixo de seus pés...");
 
                 Thread.sleep(3000);
 

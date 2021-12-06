@@ -13,7 +13,7 @@ public class Variables {
 
   ConsoleColor Color = new ConsoleColor();
 
-  public void printGlobalData() {
+  public void showGlobalData() {
     System.out.println("\n----------- Informações do jogador -----------");
     System.out.println(Color.setColor("red", "Vida: " + playerHealth));
     System.out.println(Color.setColor("cyan", "Quantidade de cavaleiros: " + knightQuantity));

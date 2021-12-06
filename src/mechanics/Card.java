@@ -4,11 +4,11 @@ import global.Variables;
 import design.ConsoleColor;
 
 public class Card {
-  ConsoleColor Color = new ConsoleColor();
-
   public int id;
   public String name;
   public String description;
+
+  ConsoleColor Color = new ConsoleColor();
 
   public Card(int id) {
     this.id = id;

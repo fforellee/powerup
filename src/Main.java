@@ -25,20 +25,19 @@ public class Main {
                 Enemy[] Enemy = new Enemy[5];
 
                 Enemy[0] = new Enemy("Morto-vivo", 5, 5);
-                Enemy[1] = new Enemy("Espectro da Escuridão", 30, 10);
-                Enemy[2] = new Enemy("Cavaleiro Legionário", 50, 15);
-                Enemy[3] = new Enemy("Sentinela Real", 100, 20);
+                Enemy[1] = new Enemy("Espectro da Escuridão", 3, 10); //30 
+                Enemy[2] = new Enemy("Cavaleiro Legionário", 5, 15);//50
+                Enemy[3] = new Enemy("Sentinela Real", 10, 20);//100
                 Enemy[4] = new Enemy("Alma das Cinzas", 200, 40);
 
                 Screen.gameStartup();
-
                 Progression.welcomeToALonelyPlace(Color);
                 Progression.gameStart(Color);
                 Progression.cardsHaveAppeared(Color);
 
                 while (currentStage < Enemy.length) {
                         for (int i = 0; i < Enemy.length; i++) {
-                                Global.printGlobalData();
+                                Global.showGlobalData();
 
                                 System.out.println(
                                                 "\n<<< Você se encontra atualmente no " + (currentStage + 1)
@@ -86,7 +85,7 @@ public class Main {
                                                 Thread.sleep(1000);
                                         }
 
-                                        Global.printGlobalData();
+                                        Global.showGlobalData();
 
                                         Enemy[i].health -= Global.totalDamage;
 
@@ -150,21 +149,15 @@ public class Main {
                                                                         "\nVida atual: " + Global.playerHealth));
                                                 }
 
+                                                if (Global.playerHealth <= 0) {
+                                                        Progression.gameOver(Global, Color);
+                                                        System.exit(0);
+                                                }
+
                                                 Hand.fillHand(Deck);
                                         }
 
                                         Global.usedCards = 0;
-
-                                        if (Global.playerHealth <= 0) {
-                                                Progression.gameOver(Global, Color);
-                                                System.exit(0);
-                                        }
-                                }
-
-                                if (Global.playerHealth <= 0) {
-                                        Progression.gameOver(Global, Color);
-                                        System.exit(0);
-
                                 }
 
                                 Global.score += Global.totalDamage * 1.5;
@@ -176,12 +169,6 @@ public class Main {
                                 if (currentStage == 1) {
                                         Progression.newCardsHaveAppeared(Color);
                                 }
-
-                        }
-
-                        if (Global.playerHealth <= 0) {
-                                Progression.gameOver(Global, Color);
-                                System.exit(0);
                         }
                 }
 
