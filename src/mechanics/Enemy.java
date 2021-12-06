@@ -13,8 +13,8 @@ public class Enemy {
     }
 
     public void printEnemyData() {
-        System.out.println("Nome: " + name);
-        System.out.println("Vida: " + health);
-        System.out.println("Dano: " + damage);
+        System.out.println("Nome do inimigo: " + name);
+        System.out.println("Vida do inimigo: " + health);
+        System.out.println("Dano do inimigo: " + damage);
     }
 }
