@@ -60,9 +60,9 @@ Agradecimento especial à:
 - Pode-se utilizar até 3 cartas por turno. 
 - Ao final de cada turno, o jogo preenche a mão do jogador com novas cartas.
 
-## Inimigos `<Array>`
+## Inimigos `<Object>`
 
-Um array de `Objects` que possuem nome, vida e poder pré-determinados.
+Uma classe de `Objects` que possuem nome, vida e poder pré-determinados.
 
 ## Andares `<Array>`
 
@@ -80,4 +80,4 @@ Ao progredir naturalmente pelo jogo, o jogador vai acionando certos gatilhos que
 - O jogador escolhe e utiliza até `3` cartas das `7` que possui em sua mão atual.
 - Ao final de cada turno, os cavaleiros do jogador atacam o inimigo.
    - Caso o jogador destrua o inimigo, sobe-se de andar e o jogo continua.
-   - Caso o jogador não destrua o inimigo, a batalha continua até que um dos dois sejam destruídos.
+   - Caso contrário, a batalha continua até que um dos dois sejam destruídos.
