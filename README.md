@@ -28,7 +28,7 @@ Agradecimento especial à:
 - Ao final de cada turno, os cavaleiros do jogador atacam o inimigo.
    - Caso o jogador destrua o inimigo, sobe-se de andar e o jogo continua.
    - Caso contrário, a batalha continua até que um dos dois sejam destruídos.
-   
+
 ## Variáveis Globais
 
 | Variável                  | Tipo     | Restrições              |
@@ -56,7 +56,7 @@ Agradecimento especial à:
 | 04 | Sacrificar | Sacrifica 2 cavaleiros, mas aumenta em 1 ponto o poder de cada cavaleiro |
 | 05 | Treinar    | Aumenta em 1 ponto o poder de cada cavaleiro                             |
 
-## Deck `<Stack/Pilha>`
+## Deck `<Stack>`
 
 - O Deck é gerado como uma pilha.
 - Possui `7` cartas geradas aleatóriamente.
