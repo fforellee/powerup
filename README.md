@@ -1,4 +1,4 @@
-# Importante
+# < Importante >
 
 Integrantes do projeto:
 
@@ -67,14 +67,14 @@ Uma classe de `Objects` que possuem nome, vida e poder pré-determinados.
 ## Andares `<Array>`
 
 - Possui 5 andares, cada um possuindo um inimigo diferente.
-- Cada índice do array recebe um `Object` do tipo `Enemy`.
+- Cada índice do array recebe um `Object` do tipo `Inimigo`.
 - A cada novo andar, a mão do jogador recebe novas cartas.
 
 ## Progressão do jogo `<Object>`
 
 Ao progredir naturalmente pelo jogo, o jogador vai acionando certos gatilhos que retornam informações importantes sobre o andamento do jogo.
 
-## Batalha'
+## Batalha
 
 - Ao iniciar o jogo ou ao subir de andar, o jogador colide com um inimigo.
 - O jogador escolhe e utiliza até `3` cartas das `7` que possui em sua mão atual.
