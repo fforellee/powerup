@@ -1,6 +1,6 @@
-# < Importante >
+# Contribuidores
 
-Integrantes do projeto:
+O projeto foi realizado com a mão de obra dos seguintes integrantes: 
 
 - Eduardo Guilherme de Medeiros (@eduGuilherme)
 - Fabio Nalini (@DarkseekerGael)
@@ -11,7 +11,7 @@ Agradecimento especial à:
 
 - Daniel Antunes (@dannesx)
 
-# Sobre o projeto
+## Sobre o projeto
 
 `Power UP!` é um jogo de cartas no formato arcade, onde seu objetivo é conquistar os `5` andares do calabouço. Cada andar possui um inimigo a enfrentar, e o jogador deve utilizar seus cavaleiros e suas cartas mágicas para combatê-lo. Quando um inimigo é derrotado, o jogador avança para o próximo andar, onde um inimigo ainda mais poderoso o aguarda!
 
