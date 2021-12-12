@@ -13,7 +13,7 @@ Agradecimento especial à:
 
 # Sobre o projeto
 
-`Power UP!` é um jogo de cartas no formato arcade, onde seu objetivo é conquistar os `5` andares do calabouço. Cada andar possui um inimigo à enfrentar, e o jogador deve utilizar seus cavaleiros e suas cartas mágicas para combatê-lo. Quando um inimigo é derrotado, o jogador avança para o próximo andar, onde um inimigo ainda mais poderoso o aguarda!
+`Power UP!` é um jogo de cartas no formato arcade, onde seu objetivo é conquistar os `5` andares do calabouço. Cada andar possui um inimigo a enfrentar, e o jogador deve utilizar seus cavaleiros e suas cartas mágicas para combatê-lo. Quando um inimigo é derrotado, o jogador avança para o próximo andar, onde um inimigo ainda mais poderoso o aguarda!
 
 ## Resumo
 
@@ -28,15 +28,16 @@ Agradecimento especial à:
 | Vida do jogador           | `<int>`  | playerHealth >= 1       |
 | Pontuação do jogador      | `<int>`  | score >= 0              |
 | Quantid. de cavaleiros    | `<int>`  | knightQuantity >= 1     |
-| Poder dos cavaleiros      | `<int>`  | knightDamage >= 1       |
-| Poder total               | `<int>`  | totalDamge = knightQuantity * knightPower        |
-| Quantid. de cartas usadas | `<int>`  | usedCards <= 0          |
+| Poder dos cavaleiros      | `<int>`  | knightPower >= 1        |
+| Poder final               | `<int>`  | finalDamage = knightQuantity * knightPower        |
+| Quantid. de cartas usadas | `<int>`  | usedCards <= 3          |
 
 ## Cartas `<Object>`
 
-- Existem 5 cartas diferentes.
+- Existem `5` tipos de cartas diferentes.
 - São `Objects` que possuem ID `int`, nome `String`, descrição `String` e chamam uma magia específica.
-- Cada carta altera o jogo de alguma forma.
+- Cada carta altera o andamento do jogo de alguma forma.
+
 ### Tipos
 
 | ID | Nome       | Descrição                                                                |
@@ -61,22 +62,22 @@ Agradecimento especial à:
 
 ## Inimigos `<Array>`
 
-Um array de `Objetos` que possuem nome, vida e poder pré-determinados.
-
-## Progressão do jogo `<Object>`
-
-Ao progredir naturalmente pelo jogo, o jogador vai ativando certos gatilhos que retornam informações importantes sobre o andamento do jogo.
+Um array de `Objects` que possuem nome, vida e poder pré-determinados.
 
 ## Andares `<Array>`
 
 - Possui 5 andares, cada um possuindo um inimigo diferente.
-- Cada índice do array recebe um novo `Enemy`.
-- A cada novo andar, o jogador recebe novas cartas.
+- Cada índice do array recebe um `Object` do tipo `Enemy`.
+- A cada novo andar, a mão do jogador recebe novas cartas.
+
+## Progressão do jogo `<Object>`
+
+Ao progredir naturalmente pelo jogo, o jogador vai acionando certos gatilhos que retornam informações importantes sobre o andamento do jogo.
 
 ## Batalha'
 
-- Ao iniciar o jogo ou ao subir de andar, o jogador colide com um inimigo
-- O jogador escolhe e utiliza até 3 cartas das 7 que possui em sua mão atual
-- Ao final de seu turno, os cavaleiros do jogador atacam o inimigo
-   - Caso o jogador destrua o inimigo, sobe-se de andar e o jogo continua
-   - Caso o jogador não destrua o inimigo, a batalha continua até que um dos dois sejam destruídos
+- Ao iniciar o jogo ou ao subir de andar, o jogador colide com um inimigo.
+- O jogador escolhe e utiliza até `3` cartas das `7` que possui em sua mão atual.
+- Ao final de cada turno, os cavaleiros do jogador atacam o inimigo.
+   - Caso o jogador destrua o inimigo, sobe-se de andar e o jogo continua.
+   - Caso o jogador não destrua o inimigo, a batalha continua até que um dos dois sejam destruídos.
