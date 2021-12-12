@@ -1,6 +1,6 @@
 # Contribuidores
 
-O projeto foi realizado com a mão de obra dos seguintes integrantes: 
+O projeto só pôde ser realizado com a colaboração dos seguintes participantes: 
 
 - Eduardo Guilherme de Medeiros (@eduGuilherme)
 - Fabio Nalini (@DarkseekerGael)
@@ -21,6 +21,14 @@ Agradecimento especial à:
 - O jogo consiste entre o jogador versus a máquina (sem Inteligência Artificial);
 - O intuito do jogo é maximizar o dano possível por hit utilizando cartas mágicas que modificam o poder dos cavaleiros.
 
+## Batalha
+
+- Ao iniciar o jogo ou ao subir de andar, o jogador colide com um inimigo.
+- O jogador escolhe e utiliza até `3` cartas das `7` que possui em sua mão atual.
+- Ao final de cada turno, os cavaleiros do jogador atacam o inimigo.
+   - Caso o jogador destrua o inimigo, sobe-se de andar e o jogo continua.
+   - Caso contrário, a batalha continua até que um dos dois sejam destruídos.
+   
 ## Variáveis Globais
 
 | Variável                  | Tipo     | Restrições              |
@@ -73,11 +81,3 @@ Uma classe de `Objects` que possuem nome, vida e poder pré-determinados.
 ## Progressão do jogo `<Object>`
 
 Ao progredir naturalmente pelo jogo, o jogador vai acionando certos gatilhos que retornam informações importantes sobre o andamento do jogo.
-
-## Batalha
-
-- Ao iniciar o jogo ou ao subir de andar, o jogador colide com um inimigo.
-- O jogador escolhe e utiliza até `3` cartas das `7` que possui em sua mão atual.
-- Ao final de cada turno, os cavaleiros do jogador atacam o inimigo.
-   - Caso o jogador destrua o inimigo, sobe-se de andar e o jogo continua.
-   - Caso contrário, a batalha continua até que um dos dois sejam destruídos.
