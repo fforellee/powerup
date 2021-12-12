@@ -25,9 +25,9 @@ public class Main {
                 Enemy[] Enemy = new Enemy[5];
 
                 Enemy[0] = new Enemy("Morto-vivo", 5, 5);
-                Enemy[1] = new Enemy("Espectro da Escuridão", 15, 10);
-                Enemy[2] = new Enemy("Cavaleiro Legionário", 50, 15);
-                Enemy[3] = new Enemy("Sentinela Real", 100, 25);
+                Enemy[1] = new Enemy("Espectro da Escuridão", 30, 10);
+                Enemy[2] = new Enemy("Cavaleiro Legionário", 60, 20);
+                Enemy[3] = new Enemy("Sentinela Real", 100, 30);
                 Enemy[4] = new Enemy("Alma das Cinzas", 200, 40);
 
                 Screen.gameStartup();
@@ -87,7 +87,7 @@ public class Main {
 
                                         Global.showGlobalData();
 
-                                        Enemy[i].health -= Global.totalDamage;
+                                        Enemy[i].health -= Global.finalDamage;
 
                                         if (Enemy[i].health <= 0) {
                                                 System.out.println(
@@ -96,12 +96,12 @@ public class Main {
                                                 Thread.sleep(3000);
 
                                                 System.out.println("\n[!] O <" + Enemy[i].name + "> sofreu ["
-                                                                + Global.totalDamage + "] de dano!");
+                                                                + Global.finalDamage + "] de dano!");
 
                                                 Thread.sleep(3000);
 
                                                 if (Enemy[4].health <= 0) {
-                                                        Global.score += Global.totalDamage * 1.5;
+                                                        Global.score += Global.finalDamage * 1.5;
 
                                                         Progression.victoryAchieved(Global, Color);
                                                         Screen.gameCredits();
@@ -130,7 +130,7 @@ public class Main {
                                                 Thread.sleep(3000);
 
                                                 System.out.println("\n[!] O <" + Enemy[i].name + "> sofreu [" +
-                                                                Global.totalDamage
+                                                                Global.finalDamage
                                                                 + "] de dano, mas ainda possui [" + Enemy[i].health
                                                                 + "] de vida!");
 
@@ -160,7 +160,7 @@ public class Main {
                                         Global.usedCards = 0;
                                 }
 
-                                Global.score += Global.totalDamage * 1.5;
+                                Global.score += Global.finalDamage * 1.5;
 
                                 System.out.println(Color.setColor("green", "\nPontuação atual: " + Global.score));
 

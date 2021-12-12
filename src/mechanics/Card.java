@@ -67,33 +67,33 @@ public class Card {
       System.out
           .println(Color.setColor("blue", "\n[?] A carta desapareceu de suas mãos ao utilizá-la, mas nada aconteceu."));
     }
-    Global.computeTotalDamage();
+    Global.computeFinalDamage();
   }
 
   public void Recrutar(Variables Global) {
     Global.knightQuantity += 2;
-    Global.computeTotalDamage();
+    Global.computeFinalDamage();
   }
 
   private void Reunir(Variables Global) {
-    Global.knightDamage += (Global.knightQuantity / 3);
-    Global.computeTotalDamage();
+    Global.knightPower += (Global.knightQuantity / 3);
+    Global.computeFinalDamage();
   }
 
   public void Sacrificar(Variables Global) {
     if (Global.knightQuantity >= 3) {
       Global.knightQuantity -= 2;
-      Global.knightDamage += Global.knightDamage * 1;
+      Global.knightPower += Global.knightPower * 1;
     } else {
       System.out
           .println(Color.setColor("blue", "\n[?] A carta desapareceu de suas mãos ao utilizá-la, mas nada aconteceu."));
-      Global.computeTotalDamage();
+      Global.computeFinalDamage();
     }
   }
 
   public void Treinar(Variables Global) {
-    Global.knightDamage++;
-    Global.computeTotalDamage();
+    Global.knightPower++;
+    Global.computeFinalDamage();
   }
 
 }
